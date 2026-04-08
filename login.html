@@ -16,10 +16,27 @@
         <label>Password:</label><br>
         <input type="password" placeholder="Enter password"><br><br>
 
-        <button type="submit">Login</button>
+        <button type="button" onclick="loginUser()">Login</button>
     </form>
 
     <p>Don't have account? <a href="register.html">Register</a></p>
 
+    <script>
+function loginUser() {
+
+    let email = document.querySelector("input[type='text']").value;
+    let password = document.querySelector("input[type='password']").value;
+
+    let savedEmail = localStorage.getItem("email");
+    let savedPassword = localStorage.getItem("password");
+
+    if(email === savedEmail && password === savedPassword){
+        alert("Login Successful!");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid Email or Password!");
+    }
+}
+</script>
 </body>
 </html>
